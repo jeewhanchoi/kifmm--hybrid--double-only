@@ -1,0 +1,18 @@
+CC = gcc
+CFLAGS = -Wall -Drestrict=__restrict__
+CDEPFLAGS = -MD
+COPTFLAGS = -O4 -mtune=native
+CLDFLAGS = -lm
+
+FC = gfortran
+FFLAGS =
+FOPTFLAGS = $(COPTFLAGS)
+FLDFLAGS =
+
+OMPFLAGS = -fopenmp
+
+AR = ar
+ARCRFLAGS = cr
+RANLIB = ranlib
+
+# eof

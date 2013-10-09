@@ -1,0 +1,43 @@
+CPP = g++
+CC = gcc
+CFLAGS = -g -Wall -Drestrict=__restrict__
+CDEPFLAGS = -MD
+COPTFLAGS = -O3 -msse3 -funroll-loops
+CLDFLAGS = -lm -lrt
+
+CXX = g++
+CXXFLAGS = $(CFLAGS)
+CXXDEPFLAGS = $(CDEPFLAGS)
+CXXOPTFLAGS = $(COPTFLAGS)
+CXXLDFLAGS = $(CLDFLAGS)
+
+FC = gfortran
+FFLAGS =
+FOPTFLAGS = $(COPTFLAGS)
+FLDFLAGS =
+
+OMPFLAGS = -fopenmp
+
+nvcc-path := $(shell which nvcc)
+ifneq ($(nvcc-path),)
+  ifeq ($(NERSC_HOST),carver)
+    # Dirac experimental GPU cluster at NERSC
+    CUDA_DIR = /usr/common/usg/cuda/3.1
+    CUDASDK_DIR = /global/homes/r/richie/local/dirac/NVIDIA_GPU_Computing_SDK/C
+    NVCC = nvcc -I$(CUDASDK_DIR)/common/inc --ptxas-options=-v -arch=sm_20
+    CUDA_LIBS = -L$(CUDASDK_DIR)/lib -lcutil_x86_64 -L$(CUDA_DIR)/lib64 -lcudart
+    CXXFLAGS += -I$(CUDA_DIR)/include -I$(CUDASDK_DIR)/common/inc
+  else
+    CUDA_DIR = /usr/local/cuda
+    CUDASDK_DIR = $(HOME)/software/cudasdk/C
+    NVCC = nvcc -I$(CUDASDK_DIR)/common/inc --ptxas-options=-v -arch=sm_13
+    CUDA_LIBS = -L$(CUDASDK_DIR)/lib -lcutil -L$(CUDA_DIR)/lib64 -lcudart
+    CXXFLAGS += -I$(CUDA_DIR)/include -I$(CUDASDK_DIR)/common/inc
+  endif
+endif
+
+AR = ar
+ARCRFLAGS = cr
+RANLIB = ranlib
+
+# eof

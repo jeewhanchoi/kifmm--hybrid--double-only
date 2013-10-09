@@ -1,0 +1,18 @@
+CC = icc
+CFLAGS = -restrict -DENABLE_AFFINITY_VIA_SCHED_AND_NUMA
+CDEPFLAGS = -MD
+COPTFLAGS = -g -O2 -msse3
+CLDFLAGS = -lnuma -lm -lrt
+
+FC = ifort
+FFLAGS =
+FOPTFLAGS = $(COPTFLAGS)
+FLDFLAGS =
+
+OMPFLAGS = -openmp
+
+AR = ar
+ARCRFLAGS = cr
+RANLIB = ranlib
+
+# eof

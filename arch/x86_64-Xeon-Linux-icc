@@ -1,0 +1,34 @@
+CC = icc
+CFLAGS = -g -D_GNU_SOURCE -restrict -MMD  #-Wall -wd2259 
+CDEPFLAGS = -MD
+COPTFLAGS = -O3  -msse3 #-static -pthread
+CLDFLAGS = -lm -lrt
+
+CXX = icpc
+CXXFLAGS = $(CFLAGS)
+CXXDEPFLAGS = $(CDEPFLAGS)
+CXXOPTFLAGS = $(COPTFLAGS)
+CXXLDFLAGS = $(CLDFLAGS)
+
+FC = ifort
+FFLAGS =
+FOPTFLAGS = $(COPTFLAGS)
+FLDFLAGS =
+
+OMPFLAGS = -openmp
+
+nvcc-path := $(shell which nvcc)
+ifneq ($(nvcc-path),)
+	CUDA_DIR = /opt/cuda-4.2/cuda
+	CUDASDK_DIR = /nethome/gt6818a/NVIDIA_GPU_Computing_SDK/C
+	NVCC = nvcc -I$(CUDASDK_DIR)/common/inc --ptxas-options=-v -gencode arch=compute_20,code=sm_20 --ptxas-options=-v -Xptxas -dlcm=ca --compiler-options -fno-strict-aliasing  -I. -I$(CUDA_DIR)/include -I../../common/inc -DUNIX -Drestrict=__restrict__ -DENABLE_AFFINITY_VIA_SCHED -O3
+endif
+
+MPICC = mpicxx
+MPICXX = mpicxx
+
+AR = ar
+ARCRFLAGS = cr
+RANLIB = ranlib
+
+# eof

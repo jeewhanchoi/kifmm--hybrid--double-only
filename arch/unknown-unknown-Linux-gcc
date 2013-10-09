@@ -1,0 +1,19 @@
+CC = icc
+CFLAGS = -Wall -restrict
+CDEPFLAGS = -MD
+COPTFLAGS = -O3 -msse3 -xHost -static -pthread
+CLDFLAGS = -lm -lrt
+
+FC = ifort
+FFLAGS =
+FOPTFLAGS = $(COPTFLAGS)
+FLDFLAGS =
+
+OMPFLAGS = -openmp
+#-openmp
+
+AR = ar
+ARCRFLAGS = cr
+RANLIB = ranlib
+
+# eof

@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -g -Wall -Drestrict=__restrict__
+CDEPFLAGS = -MD
+COPTFLAGS = # -opt-report -vec-report -static #-O3 -msse3 -static #-pthread
+CLDFLAGS = -lm -lrt
+
+FC = ifort
+FFLAGS =
+FOPTFLAGS = $(COPTFLAGS)
+FLDFLAGS =
+
+OMPFLAGS = -fopenmp
+#-openmp
+
+AR = ar
+ARCRFLAGS = cr
+RANLIB = ranlib
+
+# eof

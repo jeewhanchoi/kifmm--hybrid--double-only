@@ -1,0 +1,33 @@
+CC = icc
+CFLAGS = -restrict
+CDEPFLAGS = -MD
+COPTFLAGS = -O3
+CLDFLAGS = -lm
+
+CXX = icpc
+CXXFLAGS = $(CFLAGS)
+CXXDEPFLAGS = $(CDEPFLAGS)
+CXXOPTFLAGS = $(COPTFLAGS)
+CXXLDFLAGS = $(CLDFLAGS)
+
+FC = ifort
+FFLAGS =
+FOPTFLAGS = $(COPTFLAGS)
+FLDFLAGS =
+
+OMPFLAGS = -openmp
+
+nvcc-path := $(shell which nvcc)
+ifneq ($(nvcc-path),)
+  CUDA_DIR = /usr/local/cuda
+  CUDASDK_DIR = /Developer/GPU\ Computing/C
+  NVCC = nvcc -I$(CUDASDK_DIR)/common/inc
+  CUDA_LIBS = -L$(CUDASDK_DIR)/lib -lcutil_i386 -L$(CUDA_DIR)/lib -lcuda -lcudart
+  CXXFLAGS += -I$(CUDA_DIR)/include -I$(CUDASDK_DIR)/common/inc
+endif
+
+AR = ar
+ARCRFLAGS = cr
+RANLIB = ranlib
+
+# eof

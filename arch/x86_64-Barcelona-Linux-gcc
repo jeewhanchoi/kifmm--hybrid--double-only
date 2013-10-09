@@ -1,0 +1,18 @@
+CC = gcc
+CFLAGS = -g -Wall -Drestrict=__restrict__ -DENABLE_AFFINITY_VIA_SCHED_AND_NUMA
+CDEPFLAGS = -MD
+COPTFLAGS = -O3 -msse3 -funroll-loops #-mtune=barcelona -msse3 -funroll-loops
+CLDFLAGS = -lnuma -lm -lrt
+
+FC = gfortran
+FFLAGS =
+FOPTFLAGS = $(COPTFLAGS)
+FLDFLAGS =
+
+OMPFLAGS = -fopenmp
+
+AR = ar
+ARCRFLAGS = cr
+RANLIB = ranlib
+
+# eof
