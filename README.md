@@ -1,5 +1,22 @@
 # KIFMM benchmark 
 
+This repository contains CPU+GPU benchmark implementations of the
+kernel-independent fast multipole method (KIFMM), which was used most
+recently in the following papers:
+
+- Jee Choi, Aparna Chandramowlishwaran, Kamesh Madduri, and Richard
+  Vuduc. "A CPU-GPU hybrid implementation and model-driven scheduling
+  of the fast multipole method." In _Proceedings of the 7th Workshop
+  on General-Purpose Processing using GPUs (GPGPU-7)_, Salt Lake City,
+  UT, USA,
+  March 2014. [doi:10.1145/2576779.2576787](http://dl.acm.org/citation.cfm?id=2576787)
+ 
+- Aparna Chandramowlishwaran, Jee Choi, Kamesh Madduri, and Richard
+  Vuduc. "Brief announcement: Towards a communication optimal fast
+  multipole method and its implications at exascale." In _Proceedings
+  of the 24th Annual ACM Symposium on Parallel Algorithms and
+  Architectures (SPAA'12)_, Pittsburgh, PA, USA, June
+  25-27, 2012. [doi:10.1145/2312005.2312039](http://dl.acm.org/citation.cfm?id=2312039).
 
 Feel free to post issues or pull requests on GitHub:
 https://github.com/jeewhanchoi/kifmm--hybrid--double-only
