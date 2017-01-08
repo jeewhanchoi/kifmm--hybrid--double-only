@@ -18,6 +18,8 @@ recently in the following papers:
   Architectures (SPAA'12)_, Pittsburgh, PA, USA, June
   25-27, 2012. [doi:10.1145/2312005.2312039](http://dl.acm.org/citation.cfm?id=2312039).
 
+See **Other notes**, below, for more information.
+
 Feel free to post issues or pull requests on GitHub:
 https://github.com/jeewhanchoi/kifmm--hybrid--double-only
 
@@ -116,11 +118,17 @@ The benchmark generates the follwing executables,
 ## Other notes
 
 - By default, for the GPU version, all data structures are allocated
-in the memory prior to execution.  However, due to CUFFT taking too
-much memory, for large number of points and/or higher precision, there
-is support to allocate data as they are needed.  This can be
-automatically turned on and off setting the `MIN_DATA` definition
-found in `partial.h` to `1` or `0`.
+  in the memory prior to execution.  However, due to CUFFT taking too
+  much memory, for large number of points and/or higher precision,
+  there is support to allocate data as they are needed.  This can be
+  automatically turned on and off setting the `MIN_DATA` definition
+  found in `partial.h` to `1` or `0`.
+
+- Our code derives its main algorithmic ideas from KIFMM3d, which was
+  developed by others:
+  http://cs.nyu.edu/~harper/kifmm3d/documentation/index.html . The
+  focus of our implementation is single-node performance
+  optimization.
 
 
 Contributors
